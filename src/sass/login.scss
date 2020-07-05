@@ -1,0 +1,209 @@
+/*京东logo区域*/
+#jd_login_top{
+    h1{
+        float: left;
+        padding-top: 16px;
+    }
+    h2{
+        float: left;
+        font-size: 24px;
+        line-height: 24px;
+        margin-left:24px ;
+        padding-top: 38px;
+    }
+    .jd_top_content{
+        width: 990px;
+        margin: 0 auto;
+        height: 77px;
+        div{
+            margin-top: 50px;
+            float: right;
+            a{
+                font-size: 12px;
+                color: #999999;
+                i{
+                    color: #e4393c;
+                }
+            }
+        }
+    }
+}
+/*京东法律提醒区域*/
+#jd_fl{
+    height: 42px;
+    line-height: 42px;
+    background: #fff8f0;
+    .jd_fl_content{
+        width: 990px;
+        margin: 0 auto;
+        text-align: center;
+        p{
+            font-size: 12px;
+            color: #999999;
+            span{
+                color: #333333;
+            }
+        }
+    }
+}
+/*banner区域*/
+#jd_login_banner{
+    background: #e93854;
+    .login_banner_content{
+        width: 990px;
+        background: url(../images/loginbanner.png);
+        height: 476px;
+        margin: 0 auto;
+        position: relative;
+        .banner_login_box{
+            position: absolute;
+            right: 0;
+            top: 12px;
+            width: 348px;
+            h3{
+                height: 38px;
+                background: #fff8f0;
+                line-height: 38px;
+                color: #999999;
+                font-size: 12px;
+                text-align: center;
+            }
+            .login_use_btn{
+                height: 54px;
+                background: #fff;
+                border-bottom: 1px solid #f4f4f4;
+
+                span{
+                    &:hover{
+                        font-weight: bolder;
+                        color: #e4393c;
+                    }
+                    float: left;
+                    line-height: 18px;
+                    font-size: 18px;
+                    color: #666666;
+                    cursor: pointer;
+                    padding: 18px 50px;
+                }
+            }
+            main{
+                height:224px;
+                background: #fff;
+                padding-top: 32px;
+                .user_msg{
+                    width: 303px;
+                    height: 38px;
+                    border: 1px solid #bdbdbd;
+                    margin: 0 auto 20px;
+                    span{
+                        float: left;
+                        width: 38px;
+                        height: 38px;
+                        border-right: 1px solid #bdbdbd;
+                        line-height: 38px;
+                        text-align: center;
+                        color: #d4d4d4;
+                        background: #f4f4f4;
+                    }
+                    input{
+                        border: none;
+                        padding-left: 10px;
+                        line-height: 38px;
+                    }
+                }
+                .forget_pass{
+                    padding:0 20px;
+                    height: 38px;
+                    >a{
+                        &:hover{
+                            border-bottom: 1px solid red;
+                            color: red;
+                        }
+                        float: right;
+                        color: #666666;
+                        font-size: 12px;
+                        line-height: 12px;
+                        text-align: right;
+                        
+                    }
+                }
+                .loginbtn{
+                    width: 306px;
+                    height: 36px;
+                    line-height: 36px;
+                    text-align: center;
+                    background: #e4393c;
+                    margin:  0 auto;
+                    font-size: 18px;
+                    color: #fff;
+                }
+            }
+            footer{
+                height: 52px;
+                border-top: 1px solid #f4f4f4;
+                background: #fcfcfc;
+                line-height: 52px;
+                .login_qq{
+                    float: left;
+                    padding-left: 18px;
+                    i{
+                        color: #10a8ff;
+                    }
+                    span{
+                        color: #666666;
+                        font-size: 12px;
+                        padding: 0 15px 0 6px;
+                        border-right: 1px solid #d5ccd5;
+                    }
+                }
+                .login_wx{
+                    float: left;
+                    padding-left: 11px;
+                    i{
+                        color: #00cc00;
+                    }
+                    span{
+                        color: #666666;
+                        font-size: 12px;
+                        padding: 0 15px 0 6px;
+            
+                    }
+                }
+                .login_reg{
+                    float: right;
+                    padding-right: 22px;
+                    i{
+                        color: #e4393c;
+                    }
+                    span{
+                        color: #e4393c;
+                        font-size: 12px;
+                    }
+                }
+            }
+
+        }    
+    }
+}
+
+/*关于我们*/
+#jd_about{
+    .jd_about_content{
+        width: 990px;
+        .jd_about_nav{
+            width: 916px;
+            padding-left:74px;
+            text-align: center;
+            li a{
+                padding: 0 12px;
+            }
+        }
+        p{
+            margin-top: 16px;
+            text-align: center;
+            font-size: 12px;
+            line-height: 12px;
+            color: #666666;
+        }
+    }
+}

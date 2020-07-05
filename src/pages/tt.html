@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>1</div>
+</body>
+<script>
+    var div = document.getElementsByTagName("div")[0];
+    div.onclick = function(eve){
+        this.onmousemove = function(eve2){
+            console.log(eve2.offsetX);
+
+        }
+    }
+    var str = "100px";
+    console.log(parseInt(str))
+</script>
+</html>
