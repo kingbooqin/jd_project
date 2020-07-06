@@ -17,7 +17,7 @@
 
 /* 顶部中间登录区域 */
 .top_content_center{
-    margin-left: 136px;
+    float:right;
     font-size: 12px;
     height: 30px;
 }

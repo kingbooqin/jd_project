@@ -1,5 +1,17 @@
 window.onload = function(){
     // 商品轮播图区域
+
+    // 鼠标移入li时，隐藏详细列表出现
+    $(".jd_banner_list").children().on("mousemove",function(){
+        $(".banner_list_con").css({
+            display:"block",
+        })
+    })
+    $(".jd_banner_list").on("mouseout",function(){
+        $(".banner_list_con").css({
+            display:"none",
+        })
+    })
     // 点击左按钮时，图片淡入淡出
     var jd_banner_index = 0;
 

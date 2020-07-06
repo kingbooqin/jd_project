@@ -160,16 +160,84 @@ body,html{
     background: #fefefe;
     padding-top: 10px;
     float: left;
+    position: relative;
 }
-.jd_banner_list li{
+.jd_banner_list .banner_list_con{
+    position: absolute;
+    width: 1000px;
+    height: 470px;
+    background: #ffffff;
+    box-shadow: 0px 0px 6px #bbbbbb;
+    right: -1000px;
+    top: 0;
+    z-index: 3;
+    display: none;
+}
+/* 鼠标移入li时，隐藏详细列表出现 */
+.banner_list_con .list_con_tit{
+    height: 43px;
+    padding-left: 22px;
+    padding-top: 24px;
+}
+.list_con_tit>li{
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 12px 0 10px;
+    background: #333333;
+    color: #fff;
+    font-size: 12px;
+    margin-right: 10px;
+}
+.list_con_tit>li:hover{
+    background: #e1251b;
+}
+.list_con_item>li{
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.list_con_item>li span{
+    float: left;
+    width: 88px;
+    line-height: 12px;
+    text-align: right;
+    font-size: 12px;
+    font-weight: bolder;
+    padding-right: 8px;
+}
+.list_con_item>li span:hover{
+    color: #e1251b;
+}
+.list_con_item>li .item_list{
+    overflow: hidden;
+}
+.item_list>li{
+    float: left;
+    font-size: 12px;
+    line-height: 12px;
+    color: #666666;
+    margin-left: 18px;
+    margin-bottom: 10px;
+}
+.item_list>li:hover{
+    color: #e1251b;
+}
+
+.jd_banner_list>li{
     padding-left: 20px;
     height: 25px;
     line-height: 25px;
     font-size: 12px;
 }
+.jd_banner_list>li:hover{
+    background: #d9d9d9;
+}
 .jd_banner_list a{
     color: #3f3f3f;
     font-size: 14px;
+}
+.jd_banner_list a:hover{
+    color: red;
 }
 /* banner 轮播图区域 */
 .jd_banner_imgbox{
