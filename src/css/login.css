@@ -89,18 +89,18 @@
   font-weight: bolder;
   color: #e4393c;
 }
-#jd_login_banner .login_banner_content .banner_login_box main {
+#jd_login_banner .login_banner_content .banner_login_box form {
   height: 224px;
   background: #fff;
   padding-top: 32px;
 }
-#jd_login_banner .login_banner_content .banner_login_box main .user_msg {
+#jd_login_banner .login_banner_content .banner_login_box form .user_msg {
   width: 303px;
   height: 38px;
   border: 1px solid #bdbdbd;
   margin: 0 auto 20px;
 }
-#jd_login_banner .login_banner_content .banner_login_box main .user_msg span {
+#jd_login_banner .login_banner_content .banner_login_box form .user_msg span {
   float: left;
   width: 38px;
   height: 38px;
@@ -110,27 +110,27 @@
   color: #d4d4d4;
   background: #f4f4f4;
 }
-#jd_login_banner .login_banner_content .banner_login_box main .user_msg input {
+#jd_login_banner .login_banner_content .banner_login_box form .user_msg input {
   border: none;
   padding-left: 10px;
   line-height: 38px;
 }
-#jd_login_banner .login_banner_content .banner_login_box main .forget_pass {
+#jd_login_banner .login_banner_content .banner_login_box form .forget_pass {
   padding: 0 20px;
   height: 38px;
 }
-#jd_login_banner .login_banner_content .banner_login_box main .forget_pass > a {
+#jd_login_banner .login_banner_content .banner_login_box form .forget_pass > a {
   float: right;
   color: #666666;
   font-size: 12px;
   line-height: 12px;
   text-align: right;
 }
-#jd_login_banner .login_banner_content .banner_login_box main .forget_pass > a:hover {
+#jd_login_banner .login_banner_content .banner_login_box form .forget_pass > a:hover {
   border-bottom: 1px solid red;
   color: red;
 }
-#jd_login_banner .login_banner_content .banner_login_box main .loginbtn {
+#jd_login_banner .login_banner_content .banner_login_box form .loginbtn {
   width: 306px;
   height: 36px;
   line-height: 36px;
@@ -178,7 +178,7 @@
 #jd_login_banner .login_banner_content .banner_login_box footer .login_reg i {
   color: #e4393c;
 }
-#jd_login_banner .login_banner_content .banner_login_box footer .login_reg span {
+#jd_login_banner .login_banner_content .banner_login_box footer .login_reg a {
   color: #e4393c;
   font-size: 12px;
 }

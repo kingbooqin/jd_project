@@ -255,12 +255,16 @@
   height: 828px;
   padding: 22px 30px 0 30px;
   /*京东物流*/
+  /*活动active添加红色边框*/
   /*增值业务*/
   /*配送*/
   /*选择型号*/
   /*增值保障*/
   /*白条分期*/
   /*加入购物车*/
+}
+.de_main_content .main_center .selectedItem {
+  border: 1px solid red !important;
 }
 .de_main_content .main_center h2 {
   font-size: 16px;
@@ -588,6 +592,8 @@
 }
 .de_main_content .main_center .select_add_in .add_in_con .add_in_car {
   float: left;
+}
+.de_main_content .main_center .select_add_in .add_in_con .add_in_car button {
   width: 142px;
   height: 48px;
   background: #df3033;
@@ -596,6 +602,8 @@
   font-weight: bolder;
   text-align: center;
   line-height: 48px;
+  border: none;
+  cursor: pointer;
 }
 .de_main_content .main_center .select_add_in .add_in_notice {
   height: 36px;

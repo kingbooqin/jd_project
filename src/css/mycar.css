@@ -78,7 +78,7 @@
 /* 去购物 */
 .jd_toshop_content{
     width: 1000px;
-    height: 300px;
+    min-height: 300px;
     margin: 0 auto;
 }
 .toshop_box{
@@ -117,6 +117,147 @@
     color: #005ea7;
     margin-left: 10px;
 }
+/* 购物商品显示区域 */
+.product_list{
+    display: none;
+}
+.product_list_tit{
+    height: 42px;
+    background: #f3f3f3;
+    line-height: 42px;  
+}
+.selectAll{
+    width: 100px;
+    float: left;
+    font-size: 12px;
+    color: #666;
+    padding-left: 20px;
+}
+.selectProduct{
+    width: 200px;
+    float: left;
+    font-size: 12px;
+    color: #666;
+}
+.one_price{
+    width: 120px;
+    float: left;
+    font-size: 12px;
+    color: #666;
+    padding-left: 200px;
+}
+.num_Product{
+    width: 80px;
+    float: left;
+    font-size: 12px;
+    color: #666;
+    padding-right: 30px;
+}
+.sum_Product{
+    width: 140px;
+    float: left;
+    font-size: 12px;
+    color: #666;
+    padding-left: 20px;
+}
+.opertion_pro{
+    height: 42px;
+    float: left;
+    font-size: 12px;
+    color: #666;
+}
+/* 商品详细信息 */
+.product_list_main{
+    background: #fff4Eb;
+}
+.product_item{
+    height: 108px;
+    padding-top: 12px;
+}
+.product_check{
+    float: left;
+    width: 40px;
+    text-align: center;
+}
+.product_img{
+    float: left;
+    width: 80px;
+}
+.product_img img{
+    display: block;
+    width: 80px;
+    height: 80px;
+}
+.product_name{
+    float: left;
+    width: 220px;
+    padding-left: 10px;
+    font-size: 12px;
+    line-height: 20px;
+}
+.product_one_price{
+    float: left;
+    width: 200px;
+    text-align: right;
+    margin-left: 6px;
+    font-size: 14px;
+    
+}
+.product_number{
+    float: left;
+    width: 180px;
+    text-align: center;
+    margin-left: 6px;
+}
+.product_number span{
+    display: inline-block;
+    width: 18px;
+    height: 22px;
+    background: #fff;
+    border: 1px solid #ccc;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+}
+.product_number strong{
+    display: inline-block;
+    width: 42px;
+    height: 22px;
+    background: #fff;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    line-height: 22px;
+    text-align: center;
+}
+
+.product_number em{
+    display: inline-block;
+    width: 18px;
+    height: 22px;
+    background: #fff;
+    border: 1px solid #ccc;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+}
+.product_sum_price{
+    float: left;
+    width: 80px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bolder;
+}
+.product_operation{
+    float: left;
+    width: 60px;
+    margin-left: 90px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.product_operation:hover{
+    color: red;
+}
+
 /* 购物盒子 */
 .jd_shopbox_content{
     width: 1000px;

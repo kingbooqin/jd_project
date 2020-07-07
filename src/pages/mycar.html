@@ -11,6 +11,7 @@
     <link rel="stylesheet" href=".././css/mycar.css">
     <script src=".././lib/swiper/js/swiper.js"></script>
     <script src=".././js/jquery-1.12.4.js"></script>
+    <script src="../js/mycar.js"></script>
 </head>
 <body>
     <div id="jd_mycar">
@@ -63,12 +64,47 @@
                     </aside>
                     <div class="shopbox_right">
                         <p>购物车内暂时没有商品，登录后将显示您之前加入的商品</p>
-                        <em><a href="">登录</a></em>
-                        <span><a href="">去购物></a></span>
+                        <em><a href="../pages/login.html">登录</a></em>
+                        <span><a href="../pages/details.html">去购物></a></span>
                     </div>
                 </main>
+                <!-- 有商品的话，则展示这个商品区域 -->
+                <div class="product_list">
+                    <header class="product_list_tit">
+                        <div class="selectAll">
+                            <input type="checkbox" name="product_sel">全选
+                        </div>
+                        <div class="selectProduct">商品</div>
+                        <div class="one_price">单价</div>
+                        <div class="num_Product">数量</div>
+                        <div class="sum_Product">小计</div>
+                        <div class="opertion_pro">操作</div>
+                    </header>
+                    <div class="product_list_main">
+                        <div class="product_item">
+                            <div class="product_check">
+                                <input type="checkbox" name="ck1" id="check1">
+                            </div>
+                            <div class="product_img">
+                                <img src="../images/mf1.jpg" alt="">
+                            </div>
+                            <div class="product_name">
+                                背包背包背包背包背包背包背包背包背包背包背包背包背包背包背包背包
+                            </div>
+                            <div class="product_one_price">￥348.00</div>
+                            <div class="product_number"> 
+                                <span>-</span><strong>1</strong><em>+</em>
+                            </div>
+                            <div class="product_sum_price">
+                                ￥348.00
+                            </div>
+                            <div class="product_operation">
+                                    删除
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
         <!-- 购物盒子 -->
         <div id="jd_shopbox">

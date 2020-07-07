@@ -11,6 +11,7 @@
     <link rel="stylesheet" href=".././css/details.css">
     <script src=".././lib/swiper/js/swiper.js"></script>
     <script src=".././js/jquery-1.12.4.js"></script>
+    <script src="../js/details.js"></script>
 </head>
 <body>
     <div id="jd_details">
@@ -31,7 +32,7 @@
                     </ul>
                 </div>
                 <div class="top_content_center">
-                    <a href="#"> 你好，请登录</a><a href="$"><span>免费注册</span></a>
+                    <a href="../pages/login.html"> 你好，请登录</a><a href="../pages/register.html"><span>免费注册</span></a>
                  </div>
             </div>
         </header>
@@ -40,7 +41,7 @@
             <div class="dt_logo_content">
                 <!-- 京东logo -->
                 <aside>
-                    <a href="">
+                    <a href="../pages/jd_index.html">
                         <img src="../images/delogo_03.png" alt="">
                     </a>
                 </aside>
@@ -197,49 +198,48 @@
                             <strong>明天(07月07日)</strong>送达
                         </div>
                     </div>
-                    <!-- 选择型号 -->
                     <div class="jd_center_select">
                         <div class="select_tit">选择处理器或显卡</div>
                         <div class="select_box">
-                            <div class="select_box_item">
+                            <div class="select_box_item selectedItem" product_id="001">
                                 <img src="../images/item1.jpg" alt="">
-                                <p>升级【i5-10300H 8G 1T+128G】</p>
+                                <p>战神【i5-10300H 8G 1T+128G】</p>
                             </div>
-                            <div class="select_box_item">
+                            <div class="select_box_item" product_id="002">
                                 <img src="../images/item1.jpg" alt="">
-                                <p>升级【i5-10300H 8G 1T+128G】</p>
+                                <p>小新【i5-10300H 8G 1T+128G】</p>
                             </div>
-                            <div class="select_box_item">
+                            <div class="select_box_item" product_id="003">
                                 <img src="../images/item1.jpg" alt="">
-                                <p>升级【i5-10300H 8G 1T+128G】</p>
+                                <p>革命【i7-7300H 8G 1T+128G】</p>
                             </div>
-                            <div class="select_box_item">
+                            <div class="select_box_item" product_id="004">
                                 <img src="../images/item1.jpg" alt="">
-                                <p>升级【i5-10300H 8G 1T+128G】</p>
+                                <p>降临【i5-9300H 8G 1T+128G】</p>
                             </div>
-                            <div class="select_box_item">
+                            <div class="select_box_item" product_id="005">
                                 <img src="../images/item1.jpg" alt="">
-                                <p>升级【i5-10300H 8G 1T+128G】</p>
+                                <p>狂傲【i7-10300H 8G 1T+128G】</p>
                             </div>
-                            <div class="select_box_item">
+                            <div class="select_box_item" product_id="006">
                                 <img src="../images/item1.jpg" alt="">
-                                <p>升级【i5-10300H 8G 1T+128G】</p>
+                                <p>不灭【i7-8300H 8G 1T+256G】</p>
                             </div>
-                            <div class="select_box_item">
+                            <div class="select_box_item" product_id="007">
                                 <img src="../images/item1.jpg" alt="">
-                                <p>升级【i5-10300H 8G 1T+128G】</p>
+                                <p>堡垒【i7-9300H 16G 1T+128G】</p>
                             </div>
-                            <div class="select_box_item">
+                            <div class="select_box_item" product_id="008">
                                 <img src="../images/item1.jpg" alt="">
-                                <p>升级【i5-10300H 8G 1T+128G】</p>
+                                <p>戴尔【i7-7800H 8G 2T+128G】</p>
                             </div>
-                            <div class="select_box_item">
+                            <div class="select_box_item" product_id="009">
                                 <img src="../images/item1.jpg" alt="">
-                                <p>升级【i5-10300H 8G 1T+128G】</p>
+                                <p>传说【i7-10300H 8G 2T+512G】</p>
                             </div>
-                            <div class="select_box_item">
+                            <div class="select_box_item" product_id="010">
                                 <img src="../images/item1.jpg" alt="">
-                                <p>升级【i5-10300H 8G 1T+128G】</p>
+                                <p>神话【i7-10300H 8G 1T】</p>
                             </div>
                         </div>
                     </div>
@@ -276,7 +276,7 @@
                             </div>
                             <!-- 加入购物车按钮 -->
                             <div class="add_in_car">
-                                <p>加入购物车</p>
+                                <button>加入购物车</button>
                             </div>
                         </div>
                         <!-- 温馨提示 -->

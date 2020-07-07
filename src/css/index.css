@@ -67,6 +67,9 @@ body,html{
     top: 0;
     font-size: 12px;
 }
+.search_top .mycar:hover{
+    border: 1px solid #e1251b;
+}
 /* 购物车图标 */
 .mycar .icon-gouwu{
     color: #e1251b;
@@ -106,6 +109,9 @@ body,html{
 .search_center li a{
     color: #abb0b5;
 }
+.search_center li a:hover{
+    color: #e11d0d;
+}
 /* 端午必买品 */
 .search_center li a strong{
     color: #e11d0d;
@@ -123,6 +129,9 @@ body,html{
 }
 .search_bottom li a{
     color: #383837;
+}
+.search_bottom li a:hover{
+    color: #e11d0d;
 }
 /* 秒杀加粗 */
 .search_bottom li a strong{
