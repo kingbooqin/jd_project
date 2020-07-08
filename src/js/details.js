@@ -1,4 +1,19 @@
 window.onload = function(){
+    // decodeURI())转译URL编码
+    // 根据cookie设置登录
+    if(document.cookie){
+        var cookieArr = document.cookie.split("; ");
+        for(var i=0;i<cookieArr.length;i++){
+            var newArr = cookieArr[i].split("="); 
+            console.log(newArr)
+            if(newArr[0] == "username"){
+                $(".top_content_center").html("<a href='#'>欢迎您,尊敬的"+decodeURI(newArr[1])+" </a>")
+            }   
+        }
+        
+    }
+
+
 // 添加商品数量，到1时不能再减少
 $(".select_add_in .now_as header").on("click",function(){
     var numAdd = $(".now_num").html();
@@ -63,6 +78,7 @@ $(".add_in_car").on("click",function(){
         name:$(".select_box_item").eq(select_index).children("p").text() + "",
         img:$(".select_box_item").eq(select_index).children("img").attr("src") +"",
         price:$(".price_one strong").text() + "",
+        num:$(".now_num").text() + "",
     },function(data){
         if(JSON.parse(data).code ==1){
             console.log("加入成功");

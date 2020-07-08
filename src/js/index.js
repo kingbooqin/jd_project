@@ -1,6 +1,19 @@
 window.onload = function(){
+    // decodeURI())转译URL编码
+    // 根据cookie设置登录
+    if(document.cookie){
+        var cookieArr = document.cookie.split("; ");
+        for(var i=0;i<cookieArr.length;i++){
+            var newArr = cookieArr[i].split("="); 
+            if(newArr[0] == "username"){
+                $(".top_content_center").html("<a href='#'>欢迎您,尊敬的"+decodeURI(newArr[1])+" </a>")
+            } 
+            if(newArr[0] == "productNum"){
+                $(".mycar em").html(newArr[1])
+            } 
+        }
+    }
     // 商品轮播图区域
-
     // 鼠标移入li时，隐藏详细列表出现
     $(".jd_banner_list").children().on("mousemove",function(){
         $(".banner_list_con").css({
@@ -163,8 +176,7 @@ window.onload = function(){
                 $(".hh_content_imgbox")[0].style.left = -720 + "px";
             }else{
                 $(".hh_content_imgbox")[0].style.left = $(".hh_content_imgbox")[0].offsetLeft - 1 + "px";
-                $(".hh_content_right .swiper-scrollbar1 span")[0].style.left = - (parseInt($(".hh_content_imgbox")[0].style.left) / 720 * 880) + "px"
-                console.log($(".hh_content_imgbox")[0].style.left)
+                $(".hh_content_right .swiper-scrollbar1 span")[0].style.left = - (parseInt($(".hh_content_imgbox")[0].style.left) / 720 * 880) + "px";
             }
         },1000/60);
     }
@@ -193,5 +205,32 @@ window.onload = function(){
             window.event.returnValue = false; 
         return false; 
     }
+
+    // 楼层跳跃
+    // console.log($("#jd_ms")[0].offsetTop)
+    // console.log(document.documentElement.scrollTop)
+    window.onscroll = function(){
+        if(document.documentElement.scrollTop > $("#jd_ms")[0].offsetTop){
+            $(".ms_dingwei").css({
+                position:"fixed",
+                right:"94px"
+            });
+            if($(".ms_dingwei").css("position") == "fixed"){
+                $(".ms_dingwei").stop().animate({
+                    top:"100px",
+                },100)
+            }
+        }else{
+            $(".ms_dingwei").css({
+                position:"absolute",
+                top:0,
+                right:"-66px",
+            }).stop()
+        }     
+    }
+    $(".ms_dingwei li").on("mouseenter",function(){
+
+    })
+
 }
 

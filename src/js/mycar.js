@@ -1,4 +1,28 @@
 window.onload = function(){
+    // decodeURI())转译URL编码
+    // 根据cookie设置登录
+    if(document.cookie){
+        var cookieArr = document.cookie.split("; ");
+        for(var i=0;i<cookieArr.length;i++){
+            var newArr = cookieArr[i].split("="); 
+            if(newArr[0] == "username"){
+                $(".top_content_center").html("<a href='#'>欢迎您,尊敬的"+decodeURI(newArr[1])+" </a>")
+            }   
+        }   
+    }
+    // 初始cookie:  poductNum值为0
+    document.cookie = "productNum=0";
+ 
+    function getCookie(name){
+        var cookieArr = document.cookie.split("; ");
+        for(var i=0;i<cookieArr.length;i++){
+            var newArr = cookieArr[i].split("="); 
+            if(newArr[0] == name){
+                return parseInt(newArr[1]);
+            }
+        }    
+    }
+    // 显示数据库里面的商品
     $.get("../interface/showlist.php",function(data){
         var json = JSON.parse(data);
         if(json.code == 1){
@@ -6,8 +30,8 @@ window.onload = function(){
             $(".product_list").css({display:"block"});
             var str = "";
             for(var i=0;i<json.data.length;i++){
-                str = `
-                <div class="product_item">
+                str += `
+                <div class="product_item" product_id="${json.data[i].product_id}">
                             <div class="product_check">
                                 <input type="checkbox" name="ck1" id="check1">
                             </div>
@@ -21,24 +45,101 @@ window.onload = function(){
                             <div class="product_number"> 
                                 <span>-</span><strong>${json.data[i].product_num}</strong><em>+</em>
                             </div>
-                            <div class="product_sum_price">
-                                ${json.data[i].product_price}
-                            </div>
+                            <div class="product_sum_price">￥${json.data[i].product_price.slice(1)*json.data[i].product_num}</div>
                             <div class="product_operation">
                                     删除
                             </div>
                 </div>               
                 `;
-                var newItem =  document.createElement("div");
-                newItem.className = "product_item";
-                newItem.innerHTML = str;
-                var productList = document.getElementsByClassName("product_list_main")[0];
-                productList.appendChild(newItem);
+                var porductList = document.getElementsByClassName("product_list_main")[0];
+                porductList.innerHTML = str;
+                // 添加商品数量cookie
+                document.cookie = "productNum=" +(getCookie("productNum")+ parseInt(json.data[i].product_num));
             }
         }else{
-            console.log("请求数据失败")
+            console.log("请求数据失败或者无数据")
+            $(".toshop_box").css({display:"block"});
         }
+        // 减少商品数量
+        $(".product_number span").on("click",function(){
+            if($(this).next()[0].innerHTML <= 1){
+                $(this).css({color:"#ccc"});
+                return;
+            }else{
+                $(this).next()[0].innerHTML--;
+                $(this).parent().next()[0].innerHTML = "￥" + $(this).parent().prev().text().slice(1) * $(this).next().text();
+                document.cookie = "productNum=" + (getCookie("productNum") - 1);
+                $.get('../interface/updatewq.php',{
+                    id:$(this).parent().parent().attr("product_id"),
+                    type:"cut"
+                },function(data){
+                    var json = JSON.parse(data);
+                    if(json.code==1){
+                        console.log('商品数量减少成功');
+                    }
+                })
+            }
+        })
+        // 增加商品数量
+        $(".product_number em").on("click",function(){
+            $(this).prev().prev().css({color:"#000"});
+            $(this).prev()[0].innerHTML++;
+            document.cookie = "productNum=" + (getCookie("productNum") + 1);
+            $(this).parent().next()[0].innerHTML = "￥" + $(this).parent().prev().text().slice(1) * $(this).prev().text();
+            $.get('../interface/updatewq.php',{
+                id:$(this).parent().parent().attr("product_id"),
+                type:"add"
+            },function(data){
+                var json = JSON.parse(data);
+                if(json.code==1){
+                    console.log('商品数量增加成功')
+                }
+            })
+        })
+        // 移除商品
+        $(".product_operation").on("click",function(){
+            $(this).parent().addClass("remove_now")
+            $(".remove_now").remove();
+            if(!$(".product_item")[0]){
+                $(".product_list_tit").css({display:"none"});
+            }
+            $.get("../interface/delwq.php",{
+                id:$(this).parent().attr("product_id"),
+            },function(data){
+                if(JSON.parse(data).code == 1){
+                    console.log("移除商品成功")
+                     // 购物车里面无商品时，显示去购物
+                    //  如果还存在product_item，则表示还有商品
+                    if(!$(".product_item")[0]){
+                        $(".toshop_box").css({display:"block"});
+                    }
+                    var str = document.cookie;//字符串:a=1; b=2; c=3
+                        //先通过; 分割字符串,变成数组["a=1","b=2","c=3"];
+                        var arr = str.split('; ');
+                        var key = "productNum";//我要获取的cookie的键
+                        //console.log(arr);//把arr变成[{a:1},{b:2}]比较繁琐,想到另一个办法,变成[["a",1],["b",2],['c',3]]
+                        for(var i=0;i<arr.length;i++){
+                            //console.log(arr[i]);//把这个a=1变成["a",1]
+                            var newArr = arr[i].split('=');
+                            //console.log(newArr);//变成了["a",1]
+                            if(newArr[0]==key){
+                                console.log(key+"对应的值是"+newArr[1]);
+                                // 删除商品,cookie减一
+                                document.cookie = "productNum="+(newArr[1]-1);
+                                //如果找到了可以退出循环
+                                break;
+                            }
+                        }
+                }
+            })
+        })
+
+
+        
     })
+    
+
+
 
 
 

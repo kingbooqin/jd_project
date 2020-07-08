@@ -762,7 +762,7 @@ body,html{
 /* <!-- 右侧楼层定位信息 --> */
 .ms_dingwei{
     position: absolute;
-    right: -68px;
+    right: -66px;
     top: 0;
     width: 58px;
     height: 420px;
@@ -782,6 +782,12 @@ body,html{
     color: #3a3f3d;
     text-align: center;
     margin: 0 auto;
+}
+.ms_dingwei li:hover{
+    background: #c81623;
+}
+.ms_dingwei li:hover a{
+    color: #fff;
 }
 
 /* 每日特价 */
