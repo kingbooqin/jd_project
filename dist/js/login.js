@@ -1,0 +1,1 @@
+"use strict";window.onload=function(){$("#formlogin .loginbtn").on("click",function(){$.get("../interface/login.php",{username:$(".login_username").val(),password:$(".login_password").val()},function(n){1==JSON.parse(n).code?location.href="../pages/jd_index.html":alert("您的账号或者密码错误！")})})};

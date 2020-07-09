@@ -3,6 +3,94 @@
 #jd_top{
     background: #e3e4e5;
 }
+#fixed_nav{
+    border-bottom: 2px solid red;
+    display: none;
+    width: 100%;
+    position: fixed;
+    top: -52px;
+    z-index: 100;
+    background: #fff;
+}
+#fixed_nav .nav_top{
+    width: 1200px;
+    height: 52px;
+    margin: 0 auto;
+}
+.nav_top_left{
+    float: left;
+}
+.nav_top_left img{
+    display: block;
+    height: 42px;
+}
+.nav_top_center{
+    float: left;
+    width: 550px;
+    height:30px;
+    border: 2px solid #E1251B;
+    background: #fff;
+    margin-left: 110px;
+    margin-top: 8px;
+}
+.nav_top_center input{
+    border: none;
+    width: 446px;
+    height: 30px;
+    line-break: 32px;
+    padding-left: 12px;
+    font-size: 12px;
+}
+.nav_img_sh{
+    width: 58px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    float: right;
+    background: #E1251B;
+}
+.nav_top_center img{
+    display: inline-block;
+}
+.nav_top_right{
+    margin-left: 30px;
+    margin-top: 8px;
+    float: left;
+    width: 132px;
+    height: 36px;
+    border: 1px solid #ccc;
+    line-height: 36px;
+    font-size: 12px;
+}
+.nav_top_right:hover{
+    border: 1px solid #e1251b;
+}
+.nav_top_right .icon-gouwu{
+    color: #e1251b;
+    font-size: 16px;
+    margin-left: 20px;
+    position: relative;
+}
+.nav_top_right a i{
+    color: #E1251B;
+}
+.nav_top_right a i em{
+    position: absolute;
+    width: 18px;
+    height: 14px;
+    line-height: 14px;
+    text-align: center;
+    border-radius: 40%;
+    background: #e1251b;
+    color: #fff;
+    right: -12px;
+    top: -8px;
+    font-size: 12px;
+}
+.nav_top_right a span{
+    margin-left: 12px;
+    color: #e1251b;
+}
 
 /* 顶部内容区域 */
 #jd_top .top_content{

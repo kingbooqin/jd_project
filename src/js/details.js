@@ -5,12 +5,13 @@ window.onload = function(){
         var cookieArr = document.cookie.split("; ");
         for(var i=0;i<cookieArr.length;i++){
             var newArr = cookieArr[i].split("="); 
-            console.log(newArr)
             if(newArr[0] == "username"){
                 $(".top_content_center").html("<a href='#'>欢迎您,尊敬的"+decodeURI(newArr[1])+" </a>")
-            }   
-        }
-        
+            }else if(newArr[0] == "productNum"){
+                $(".de_mycar em").text(newArr[1]);
+            }  
+        } 
+       
     }
 
 

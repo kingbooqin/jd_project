@@ -6,6 +6,8 @@ window.onload = function(){
         },function(data){
             if(JSON.parse(data).code == 1){
                 location.href = "../pages/jd_index.html";
+            }else{
+                alert("您的账号或者密码错误！")
             }
         })
     })

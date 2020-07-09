@@ -9,10 +9,12 @@ window.onload = function(){
                 $(".top_content_center").html("<a href='#'>欢迎您,尊敬的"+decodeURI(newArr[1])+" </a>")
             } 
             if(newArr[0] == "productNum"){
-                $(".mycar em").html(newArr[1])
+                $(".mycar em").html(newArr[1]);
+                $(".nav_top_right em").html(newArr[1]);
             } 
         }
     }
+
     // 商品轮播图区域
     // 鼠标移入li时，隐藏详细列表出现
     $(".jd_banner_list").children().on("mousemove",function(){
@@ -207,10 +209,10 @@ window.onload = function(){
     }
 
     // 楼层跳跃
-    // console.log($("#jd_ms")[0].offsetTop)
-    // console.log(document.documentElement.scrollTop)
     window.onscroll = function(){
-        if(document.documentElement.scrollTop > $("#jd_ms")[0].offsetTop){
+        // 如果蜷曲距离大于jd秒杀距离顶部的大小，则让右边的导航条变为固定定位
+        if($(window).scrollTop() > $("#jd_ms")[0].offsetTop){
+            $(".ms_dingwei li:last").css({display:"block"})
             $(".ms_dingwei").css({
                 position:"fixed",
                 right:"94px"
@@ -226,11 +228,103 @@ window.onload = function(){
                 top:0,
                 right:"-66px",
             }).stop()
-        }     
-    }
-    $(".ms_dingwei li").on("mouseenter",function(){
+        }    
 
-    })
+        // 根据滚动条的位置，添加颜色
+        if($(window).scrollTop() < $("#jd_ms")[0].offsetTop - 180){
+            $(".ms_dingwei li:last").css({display:"none"})
+            $("#fixed_nav").css({display:"none"}).animate({top:"-52px"}).finish();
+            $(".ms_dingwei li").removeClass("active");
+
+        }else if($(window).scrollTop() >= $("#jd_ms").offset().top - 180 && $(window).scrollTop() < $("#jd_tj").offset().top -70 ){
+
+            $("#fixed_nav").css({display:"block"}).animate({top:0});
+            $(".ms_dingwei li").eq(0).addClass("active").siblings().removeClass("active");
+
+        }else if($(window).scrollTop() >= $("#jd_tj").offset().top - 70 && $(window).scrollTop() < $(".jd_tit").eq(0).offset().top - 70){
+            $(".ms_dingwei li").eq(1).addClass("active").siblings().removeClass("active");
+
+        }else if($(window).scrollTop() >= $(".jd_tit").eq(0).offset().top - 70 && $(window).scrollTop() < $(".jd_tit").eq(1).offset().top - 70){
+            $(".ms_dingwei li").eq(2).addClass("active").siblings().removeClass("active");
+
+        }else if($(window).scrollTop() >= $(".jd_tit").eq(1).offset().top - 70){
+            $(".ms_dingwei li").eq(3).addClass("active").siblings().removeClass("active");
+        }
+
+        // 为你推荐懒加载
+        // 窗口可视高度
+        var clientHeight = document.documentElement.clientHeight;
+        // 大盒子距离顶部的距离
+        var eleTop = $("#jd_wn").offset().top;
+        // 想要生成的小盒子的数量
+        var wantNum =  $(".jd_wn_box").children().length;
+
+        if($(window).scrollTop() > eleTop && wantNum <= 60){
+                var str = "";
+                for(var i=0;i<5;i++){
+                    str = `
+                                <div class="wn_xh_img">
+                                    <img src=".././images/xs1.webp" alt="">
+                                </div>
+                                <p>OPPO Reno4 5G新品手机超清夜景视频防抖智能拍照游戏闪充全网通</p>
+                                <h3>$3799.00</h3>
+                            `;
+                    var newSection = document.createElement("section");
+                    newSection.innerHTML = str;
+                    newSection.className = "wn_box_xh";
+                    $(".jd_wn_box").append($(newSection));
+                    $(newSection).css({display:"none"});
+                }
+        }
+    
+        var eleHeight = 324;
+        $.each($(".wn_box_xh"),function(index,value){
+            var nowFloor = Math.ceil(index/5);    
+            if(nowFloor * eleHeight + eleTop  <= clientHeight + $(window).scrollTop()){
+                $(value).css({display:"block",});
+            }
+        })
+    }
+
+    $(".ms_dingwei li").on("click",function(){
+        if($(this).index() == 0){
+            $(this).addClass("active").siblings().removeClass("active");
+            var itemTop = $("#jd_ms").offset();
+            $("body,html").animate({
+                scrollTop:itemTop.top - 69,
+            })
+        }else if($(this).index() == 1){
+            $(this).addClass("active").siblings().removeClass("active");
+            var itemTop = $("#jd_tj").offset();
+            $("body,html").animate({
+                scrollTop:itemTop.top - 69,
+            })
+        }
+        else if($(this).index() == 2){
+            $(this).addClass("active").siblings().removeClass("active");
+            var itemTop = $(".jd_tit").eq(0).offset();
+            $("body,html").animate({
+                scrollTop:itemTop.top - 69,
+            })
+        }
+        else if($(this).index() == 3){
+            $(this).addClass("active").siblings().removeClass("active");
+            var itemTop = $(".jd_tit").eq(1).offset();
+            $("body,html").animate({
+                scrollTop:itemTop.top - 69,
+            })
+        }else if($(this).index() == 6){
+            $(this).siblings().removeClass("active");
+            var itemTop = $(".jd_tit").eq(1).offset();
+            $("body,html").animate({
+                scrollTop:0,
+            })
+        }
+    });
+
+
+
+
 
 }
 

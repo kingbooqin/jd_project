@@ -11,7 +11,13 @@ window.onload = function(){
         }   
     }
     // 初始cookie:  poductNum值为0
-    document.cookie = "productNum=0";
+    var time = new Date;
+    //2.2 把time设置成20秒以后的时间
+    //注意:我们在东八区,获取到时的9:32分,此时标准应该是1:32分,
+    //但是他在设置的时候把你的9:32分当标准时间使用,所有为了和当前时间一致,要减去8个小时
+    time.setTime(time.getTime()-8*60*60*1000+60*1000*60*24*7);
+    //2.3 设置有时效的cookie
+    document.cookie = "productNum=0;expires="+time;
  
     function getCookie(name){
         var cookieArr = document.cookie.split("; ");
@@ -54,7 +60,7 @@ window.onload = function(){
                 var porductList = document.getElementsByClassName("product_list_main")[0];
                 porductList.innerHTML = str;
                 // 添加商品数量cookie
-                document.cookie = "productNum=" +(getCookie("productNum")+ parseInt(json.data[i].product_num));
+                document.cookie = "productNum=" +(getCookie("productNum") + parseInt(json.data[i].product_num)) + ";expires="+time;
             }
         }else{
             console.log("请求数据失败或者无数据")
@@ -68,7 +74,7 @@ window.onload = function(){
             }else{
                 $(this).next()[0].innerHTML--;
                 $(this).parent().next()[0].innerHTML = "￥" + $(this).parent().prev().text().slice(1) * $(this).next().text();
-                document.cookie = "productNum=" + (getCookie("productNum") - 1);
+                document.cookie = "productNum=" + (getCookie("productNum") - 1) + ";expires="+time;
                 $.get('../interface/updatewq.php',{
                     id:$(this).parent().parent().attr("product_id"),
                     type:"cut"
@@ -84,7 +90,7 @@ window.onload = function(){
         $(".product_number em").on("click",function(){
             $(this).prev().prev().css({color:"#000"});
             $(this).prev()[0].innerHTML++;
-            document.cookie = "productNum=" + (getCookie("productNum") + 1);
+            document.cookie = "productNum=" + (getCookie("productNum") + 1) + ";expires="+time;
             $(this).parent().next()[0].innerHTML = "￥" + $(this).parent().prev().text().slice(1) * $(this).prev().text();
             $.get('../interface/updatewq.php',{
                 id:$(this).parent().parent().attr("product_id"),
@@ -98,7 +104,8 @@ window.onload = function(){
         })
         // 移除商品
         $(".product_operation").on("click",function(){
-            $(this).parent().addClass("remove_now")
+            $(this).parent().addClass("remove_now");
+            document.cookie = "productNum=" + (getCookie("productNum") - $(this).prev().prev().children().eq(1).text()) + ";expires="+time;
             $(".remove_now").remove();
             if(!$(".product_item")[0]){
                 $(".product_list_tit").css({display:"none"});
@@ -113,23 +120,6 @@ window.onload = function(){
                     if(!$(".product_item")[0]){
                         $(".toshop_box").css({display:"block"});
                     }
-                    var str = document.cookie;//字符串:a=1; b=2; c=3
-                        //先通过; 分割字符串,变成数组["a=1","b=2","c=3"];
-                        var arr = str.split('; ');
-                        var key = "productNum";//我要获取的cookie的键
-                        //console.log(arr);//把arr变成[{a:1},{b:2}]比较繁琐,想到另一个办法,变成[["a",1],["b",2],['c',3]]
-                        for(var i=0;i<arr.length;i++){
-                            //console.log(arr[i]);//把这个a=1变成["a",1]
-                            var newArr = arr[i].split('=');
-                            //console.log(newArr);//变成了["a",1]
-                            if(newArr[0]==key){
-                                console.log(key+"对应的值是"+newArr[1]);
-                                // 删除商品,cookie减一
-                                document.cookie = "productNum="+(newArr[1]-1);
-                                //如果找到了可以退出循环
-                                break;
-                            }
-                        }
                 }
             })
         })

@@ -139,6 +139,7 @@
   margin: 0 auto;
   font-size: 18px;
   color: #fff;
+  cursor: pointer;
 }
 #jd_login_banner .login_banner_content .banner_login_box footer {
   height: 52px;

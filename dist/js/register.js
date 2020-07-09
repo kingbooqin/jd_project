@@ -1,0 +1,1 @@
+"use strict";window.onload=function(){$(".input_con #sub").on("click",function(){$.get("../interface/register.php",{username:$("#uname").val(),password:$("#upass").val()},function(n){1==JSON.parse(n).code?location.href="../pages/jd_index.html":alert("注册失败")})})};

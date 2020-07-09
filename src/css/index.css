@@ -66,6 +66,7 @@ body,html{
     right: -150px;
     top: 0;
     font-size: 12px;
+    overflow: hidden;
 }
 .search_top .mycar:hover{
     border: 1px solid #e1251b;
@@ -95,6 +96,7 @@ body,html{
 .mycar span{
     margin-left: 12px;
     color: #e1251b;
+    padding-right: 20px;
 }
 /* 搜索框下面第一个ul */
 .search_content .search_center{
@@ -680,12 +682,15 @@ body,html{
 .ms_center_box p{
     font-size: 12px;
     color: #6e6e6e;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 /* 红色价格 */
 .ms_center_box img{
     display: block;
     text-align: center;
-    margin: 10px auto;
+    margin: 10px auto 0;
 }
 /* <!-- jd右侧小轮播图 --> */
 .ms_content_right{
@@ -765,7 +770,7 @@ body,html{
     right: -66px;
     top: 0;
     width: 58px;
-    height: 420px;
+    /* height: 420px; */
     background: #fff;
 }
 .ms_dingwei li{
@@ -774,7 +779,7 @@ body,html{
     height: 48px;
     padding-top: 11px;
 }
-.ms_dingwei li a{
+.ms_dingwei li span{
     display: block;
     width: 28px;
     height: 38px;
@@ -786,8 +791,17 @@ body,html{
 .ms_dingwei li:hover{
     background: #c81623;
 }
-.ms_dingwei li:hover a{
-    color: #fff;
+.ms_dingwei li:hover span{
+    color: #fff!important;
+}
+.ms_dingwei li:last-child{
+    display: none;
+}
+.ms_dingwei li:last-child span{
+    color: red;
+}
+.ms_dingwei .active span{
+    color: red;
 }
 
 /* 每日特价 */
@@ -1290,6 +1304,7 @@ body,html{
     float: left;
     height: 100px;
     position: relative;
+    width: 124px;
 }
 .gd_box_left p{
     font-size: 14px;
@@ -1319,16 +1334,13 @@ body,html{
 /* 逛好店下面的右侧图片 */
 .gd_box_right{
     float: right;
-    width: 100px;
-    height: 100px;
+    padding: 5px;
     background: #fff;
 }
 .gd_box_right img{
     display: block;
     width: 90px;
     height: 90px;
-    margin: 5px auto 0;
-
 }
 
 /* <!-- 领劵中心 --> */
@@ -1486,7 +1498,6 @@ body,html{
 .jd_wn_box .wn_box_xh{
     float: left;
     width: 190px;
-    height: 260px;
     background: #fff;
     padding: 30px 20px;
     margin-right: 10px;
@@ -1498,6 +1509,7 @@ body,html{
     margin: 0 auto;
 }
 .wn_box_xh img{
+    display: block;
     width: 100%;
     height: 100%;
 }
